@@ -110,10 +110,18 @@ transition: color 0.25s ease;
 color: var(--moss);
 }
 
-/* GLOBAL SECTION */
-
+/* GLOBAL SECTION & PERFORMANCE BOOSTS */
 section {
 padding: 6.5rem 5rem;
+/* Performance fix: Instructs mobile browsers to skip rendering offscreen sections */
+content-visibility: auto;
+contain-intrinsic-size: 1px 1000px;
+}
+
+/* Specific styling for home since it's above the fold */
+#home {
+content-visibility: visible;
+contain-intrinsic-size: auto;
 }
 
 .section-header {
@@ -370,6 +378,8 @@ background: var(--snow);
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 gap: 1.05rem;
+/* Optimization: fixes mobile layout shifting before images fully load */
+grid-auto-rows: minmax(315px, auto); 
 }
 
 .media-card {
@@ -393,6 +403,8 @@ grid-column: span 2;
 
 .media-card img {
 height: 100%;
+width: 100%;
+object-fit: cover;
 transition: transform 0.6s ease, filter 0.35s ease;
 }
 
@@ -609,6 +621,11 @@ min-height: 65vh;
 
 .gallery-grid {
 grid-template-columns: repeat(2, 1fr);
+grid-auto-rows: minmax(210px, auto);
+}
+
+.media-card {
+min-height: 210px;
 }
 
 .media-card.tall {
@@ -635,11 +652,12 @@ display: none;
 
 .gallery-grid {
 grid-template-columns: 1fr;
+grid-auto-rows: auto;
 }
 
 .media-card,
 .media-card.tall {
-min-height: 380px;
+min-height: 320px;
 }
 
 .hero-caption {
@@ -689,12 +707,13 @@ right: 8px;
 A visual documentation of high-altitude medicinal plants, women-led conservation work, Monpa traditions, the Brokpa way of life, and the fragile living landscapes of Tawang, Arunachal Pradesh.
 </p>
     <div class="hero-credit">
-      Curated by Geken Riba · Research Associate · SHRDI Arunachal Pradesh
+        Curated by Geken Riba · Research Associate · SHRDI Arunachal Pradesh
     </div>
 </div>
 
 <div class="hero-image" id="heroImageBox">
-<img src="Plants/Aconitum%205.jpg" alt="Aconitum heterophyllum from the high-altitude Himalayas" onerror="markMissing(this)">
+<!-- Optimization: added loading="eager" to prioritize above-the-fold content -->
+<img src="Plants/Aconitum%205.jpg" alt="Aconitum heterophyllum from the high-altitude Himalayas" loading="eager" onerror="markMissing(this)">
 <div class="hero-caption">
 <strong><em>Aconitum heterophyllum</em></strong> — a highly valued medicinal plant of the high-altitude Himalayas and an important symbol of alpine biodiversity conservation.
 </div>
@@ -759,7 +778,8 @@ Women from the Tawang region are playing a vital role in the conservation of hig
 
 <div class="feature-row reveal">
 <div class="feature-photo">
-<img src="Field/field1.jpg" alt="Women from Tawang engaged in high-altitude medicinal plant conservation work" onerror="markMissing(this)">
+<!-- Optimization: added loading="lazy" -->
+<img src="Field/field1.jpg" alt="Women from Tawang engaged in high-altitude medicinal plant conservation work" loading="lazy" onerror="markMissing(this)">
 </div>
 
 <div class="feature-text">
@@ -823,26 +843,13 @@ Email: <a href="mailto:gekenriba15@gmail.com">gekenriba15@gmail.com</a>
 </div>
 
 <script>
-/* FIELD: field11, field12, field13 removed */
 const fieldImages = [
-"field2.jpg",
-"field3.jpg",
-"field4.jpg",
-"field5.jpg",
-"field6.jpg",
-"field7.jpg",
-"field10.jpg",
-"field14.jpg"
+"field2.jpg","field3.jpg","field4.jpg","field5.jpg","field6.jpg","field7.jpg","field10.jpg","field14.jpg"
 ].map(file => ({
 src: `Field/${file}`,
 alt: "Women-led high-altitude medicinal plant conservation work in Tawang"
 }));
 
-/*
-PLANTS:
-Aconitum 5 is used as the cover image and also appears in the gallery.
-plant12 is removed as requested.
-*/
 const plantImages = [
 { src: "Plants/Aconitum%205.jpg", name: "Aconitum heterophyllum" },
 { src: "Plants/plant1.jpg", name: "Aconitum balfourii" },
@@ -885,68 +892,54 @@ img.style.display = "none";
 }
 }
 
+/* Optimization: Changed gallery generation functions to build structure, but only load the visual image elements when scrolled near them */
 function renderFieldGallery() {
 const container = document.getElementById("fieldGallery");
-
 fieldImages.forEach((item, index) => {
 const card = document.createElement("div");
 let className = "media-card";
-
 if (index === 1 || index === 6) className += " tall";
 if (index === 4) className += " wide";
-
 card.className = className;
 card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" onerror="markMissing(this)">`;
-
 card.addEventListener("click", () => {
 if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
 });
-
 container.appendChild(card);
 });
 }
 
 function renderPlantGallery() {
 const container = document.getElementById("plantGallery");
-
 plantImages.forEach((item, index) => {
 const card = document.createElement("div");
 let className = "media-card";
-
 if (index === 0 || index === 12 || index === 24) className += " tall";
 if (index === 4 || index === 17) className += " wide";
-
 card.className = className;
 card.innerHTML = `
      <img src="${item.src}" alt="${item.name}" loading="lazy" decoding="async" onerror="markMissing(this)">
      <div class="plant-label"><em>${item.name}</em></div>
    `;
-
 card.addEventListener("click", () => {
 if (!card.classList.contains("missing")) openLightbox(item.src, item.name);
 });
-
 container.appendChild(card);
 });
 }
 
 function renderCultureGallery() {
 const container = document.getElementById("cultureGallery");
-
 cultureImages.forEach((item, index) => {
 const card = document.createElement("div");
 let className = "media-card";
-
 if (index === 0 || index === 7 || index === 14) className += " tall";
 if (index === 4 || index === 11) className += " wide";
-
 card.className = className;
 card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" onerror="markMissing(this)">`;
-
 card.addEventListener("click", () => {
 if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
 });
-
 container.appendChild(card);
 });
 }
@@ -954,10 +947,8 @@ container.appendChild(card);
 function openLightbox(src, altText) {
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
-
 lightboxImg.src = src;
 lightboxImg.alt = altText;
-
 lightbox.classList.add("open");
 document.body.style.overflow = "hidden";
 }
@@ -984,9 +975,21 @@ observer.unobserve(entry.target);
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-renderFieldGallery();
-renderPlantGallery();
-renderCultureGallery();
+/* Optimization: Use a smart gallery trigger. This ensures we don't start requesting dozens of images over cellular networks until the user is ready to look at them */
+const galleryTriggerObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+if (entry.target.id === 'field') renderFieldGallery();
+if (entry.target.id === 'plants') renderPlantGallery();
+if (entry.target.id === 'culture') renderCultureGallery();
+galleryTriggerObserver.unobserve(entry.target);
+}
+});
+}, { rootMargin: "200px 0px" }); // Starts loading 200px before the container comes into view
+
+document.querySelectorAll('#field, #plants, #culture').forEach(section => {
+galleryTriggerObserver.observe(section);
+});
 </script>
 
 </body>
