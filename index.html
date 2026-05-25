@@ -12,412 +12,412 @@
 
 <style>
 :root {
-  --moss:#314d35;
-  --sage:#748f70;
-  --lichen:#c3d0bd;
-  --snow:#f6f2eb;
-  --stone:#82786c;
-  --bark:#241b14;
-  --alpine:#416f61;
-  --mist:#e3ebe4;
-  --gold:#c6a24a;
-  --white:#ffffff;
-  --soft-shadow: 0 18px 55px rgba(36,27,20,0.14);
+--moss:#314d35;
+--sage:#748f70;
+--lichen:#c3d0bd;
+--snow:#f6f2eb;
+--stone:#82786c;
+--bark:#241b14;
+--alpine:#416f61;
+--mist:#e3ebe4;
+--gold:#c6a24a;
+--white:#ffffff;
+--soft-shadow: 0 18px 55px rgba(36,27,20,0.14);
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Cormorant Garamond', serif;
-  background: var(--snow);
-  color: var(--bark);
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
+font-family: 'Cormorant Garamond', serif;
+background: var(--snow);
+color: var(--bark);
+overflow-x: hidden;
+text-rendering: optimizeLegibility;
 }
 
 img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  image-orientation: from-image;
+width: 100%;
+display: block;
+object-fit: cover;
+image-orientation: from-image;
 }
 
 a {
-  color: inherit;
+color: inherit;
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--bark);
+background: var(--gold);
+color: var(--bark);
 }
 
 /* NAVIGATION */
 
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem;
-  background: rgba(246,242,235,0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(195,208,189,0.75);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 3rem;
+background: rgba(246,242,235,0.88);
+backdrop-filter: blur(14px);
+border-bottom: 1px solid rgba(195,208,189,0.75);
 }
 
 .nav-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.32rem;
-  color: var(--moss);
-  text-decoration: none;
-  letter-spacing: 0.02em;
+font-family: 'Playfair Display', serif;
+font-size: 1.32rem;
+color: var(--moss);
+text-decoration: none;
+letter-spacing: 0.02em;
 }
 
 .nav-brand span {
-  color: var(--gold);
-  font-style: italic;
+color: var(--gold);
+font-style: italic;
 }
 
 .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+list-style: none;
+display: flex;
+gap: 2rem;
 }
 
 .nav-links a {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--stone);
-  text-decoration: none;
-  transition: color 0.25s ease;
+font-family: 'Raleway', sans-serif;
+font-size: 0.74rem;
+font-weight: 700;
+letter-spacing: 0.13em;
+text-transform: uppercase;
+color: var(--stone);
+text-decoration: none;
+transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
-  color: var(--moss);
+color: var(--moss);
 }
 
 /* GLOBAL SECTION */
 
 section {
-  padding: 6.5rem 5rem;
+padding: 6.5rem 5rem;
 }
 
 .section-header {
-  margin-bottom: 3rem;
+margin-bottom: 3rem;
 }
 
 .section-eyebrow {
-  font-family: 'Raleway', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--sage);
-  margin-bottom: 0.85rem;
+font-family: 'Raleway', sans-serif;
+text-transform: uppercase;
+letter-spacing: 0.22em;
+font-size: 0.72rem;
+font-weight: 700;
+color: var(--sage);
+margin-bottom: 0.85rem;
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.15rem, 4vw, 3.7rem);
-  line-height: 1.1;
-  color: var(--bark);
+font-family: 'Playfair Display', serif;
+font-size: clamp(2.15rem, 4vw, 3.7rem);
+line-height: 1.1;
+color: var(--bark);
 }
 
 .section-title em {
-  color: var(--moss);
-  font-style: italic;
+color: var(--moss);
+font-style: italic;
 }
 
 .section-desc {
-  margin-top: 1.15rem;
-  max-width: 980px;
-  font-size: 1.18rem;
-  line-height: 1.85;
-  color: var(--stone);
+margin-top: 1.15rem;
+max-width: 980px;
+font-size: 1.18rem;
+line-height: 1.85;
+color: var(--stone);
 }
 
 /* HERO */
 
 #home {
-  min-height: 100vh;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1.18fr;
-  background: var(--snow);
+min-height: 100vh;
+padding: 0;
+display: grid;
+grid-template-columns: 1fr 1.18fr;
+background: var(--snow);
 }
 
 .hero-text {
-  padding: 9rem 4rem 5rem 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+padding: 9rem 4rem 5rem 5rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
 .hero-eyebrow {
-  font-family: 'Raleway', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--sage);
-  font-size: 0.75rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
+font-family: 'Raleway', sans-serif;
+text-transform: uppercase;
+letter-spacing: 0.22em;
+color: var(--sage);
+font-size: 0.75rem;
+font-weight: 700;
+margin-bottom: 1.2rem;
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 5vw, 5.1rem);
-  line-height: 1.05;
-  margin-bottom: 1rem;
+font-family: 'Playfair Display', serif;
+font-size: clamp(3rem, 5vw, 5.1rem);
+line-height: 1.05;
+margin-bottom: 1rem;
 }
 
 .hero-title em {
-  color: var(--moss);
+color: var(--moss);
 }
 
 .hero-subtitle {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.6rem;
-  max-width: 560px;
-  line-height: 1.7;
+font-family: 'Raleway', sans-serif;
+font-size: 0.82rem;
+font-weight: 700;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 1.6rem;
+max-width: 560px;
+line-height: 1.7;
 }
 
 .hero-desc {
-  font-size: 1.22rem;
-  line-height: 1.85;
-  color: var(--stone);
-  max-width: 590px;
-  margin-bottom: 2.2rem;
+font-size: 1.22rem;
+line-height: 1.85;
+color: var(--stone);
+max-width: 590px;
+margin-bottom: 2.2rem;
 }
 
 .hero-credit {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--moss);
-  font-weight: 700;
-  line-height: 1.8;
+font-family: 'Raleway', sans-serif;
+font-size: 0.78rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--moss);
+font-weight: 700;
+line-height: 1.8;
 }
 
 .hero-image {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  background: var(--lichen);
+position: relative;
+min-height: 100vh;
+overflow: hidden;
+background: var(--lichen);
 }
 
 .hero-image img {
-  height: 100%;
-  min-height: 100vh;
-  transform: scale(1.01);
+height: 100%;
+min-height: 100vh;
+transform: scale(1.01);
 }
 
 .hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to top, rgba(22,18,13,0.72), rgba(22,18,13,0.05) 55%),
-    linear-gradient(to right, rgba(22,18,13,0.18), transparent 45%);
+content: "";
+position: absolute;
+inset: 0;
+background:
+linear-gradient(to top, rgba(22,18,13,0.72), rgba(22,18,13,0.05) 55%),
+linear-gradient(to right, rgba(22,18,13,0.18), transparent 45%);
 }
 
 .hero-caption {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
-  z-index: 2;
-  color: white;
-  font-size: 1.2rem;
-  line-height: 1.7;
-  font-style: italic;
-  max-width: 760px;
+position: absolute;
+bottom: 2rem;
+left: 2rem;
+right: 2rem;
+z-index: 2;
+color: white;
+font-size: 1.2rem;
+line-height: 1.7;
+font-style: italic;
+max-width: 760px;
 }
 
 /* OVERVIEW */
 
 #about {
-  background: var(--mist);
+background: var(--mist);
 }
 
 .overview-panel {
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(195,208,189,0.95);
-  padding: 2.4rem;
-  box-shadow: var(--soft-shadow);
+background: rgba(255,255,255,0.72);
+border: 1px solid rgba(195,208,189,0.95);
+padding: 2.4rem;
+box-shadow: var(--soft-shadow);
 }
 
 .overview-panel p {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  color: var(--stone);
-  margin-bottom: 1.2rem;
+font-size: 1.15rem;
+line-height: 1.9;
+color: var(--stone);
+margin-bottom: 1.2rem;
 }
 
 .overview-panel p:last-child {
-  margin-bottom: 0;
+margin-bottom: 0;
 }
 
 .about-grid {
-  margin-top: 1.6rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
+margin-top: 1.6rem;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.2rem;
 }
 
 .about-card {
-  background: rgba(255,255,255,0.66);
-  border: 1px solid rgba(195,208,189,0.9);
-  padding: 1.8rem;
+background: rgba(255,255,255,0.66);
+border: 1px solid rgba(195,208,189,0.9);
+padding: 1.8rem;
 }
 
 .about-card h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--moss);
-  margin-bottom: 0.8rem;
-  font-size: 1.38rem;
+font-family: 'Playfair Display', serif;
+color: var(--moss);
+margin-bottom: 0.8rem;
+font-size: 1.38rem;
 }
 
 .about-card p {
-  font-size: 1.03rem;
-  line-height: 1.78;
-  color: var(--stone);
+font-size: 1.03rem;
+line-height: 1.78;
+color: var(--stone);
 }
 
 /* FEATURE BLOCK */
 
 .feature-row {
-  display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 2rem;
-  align-items: stretch;
-  margin-bottom: 2rem;
+display: grid;
+grid-template-columns: 1.12fr 0.88fr;
+gap: 2rem;
+align-items: stretch;
+margin-bottom: 2rem;
 }
 
 .feature-photo {
-  position: relative;
-  overflow: hidden;
-  min-height: 540px;
-  background: var(--lichen);
-  box-shadow: var(--soft-shadow);
+position: relative;
+overflow: hidden;
+min-height: 540px;
+background: var(--lichen);
+box-shadow: var(--soft-shadow);
 }
 
 .feature-photo img {
-  height: 100%;
-  transition: transform 0.7s ease;
+height: 100%;
+transition: transform 0.7s ease;
 }
 
 .feature-photo:hover img {
-  transform: scale(1.035);
+transform: scale(1.035);
 }
 
 .feature-text {
-  background: var(--moss);
-  color: var(--snow);
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--soft-shadow);
+background: var(--moss);
+color: var(--snow);
+padding: 3rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+box-shadow: var(--soft-shadow);
 }
 
 .feature-text h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.15rem;
-  margin-bottom: 1.1rem;
+font-family: 'Playfair Display', serif;
+font-size: 2.15rem;
+margin-bottom: 1.1rem;
 }
 
 .feature-text p {
-  font-size: 1.1rem;
-  line-height: 1.9;
-  color: var(--mist);
+font-size: 1.1rem;
+line-height: 1.9;
+color: var(--mist);
 }
 
 /* GALLERIES */
 
 #field {
-  background: var(--snow);
+background: var(--snow);
 }
 
 #plants {
-  background: var(--mist);
+background: var(--mist);
 }
 
 #culture {
-  background: var(--snow);
+background: var(--snow);
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.05rem;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 1.05rem;
 }
 
 .media-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 315px;
-  background: var(--lichen);
-  cursor: pointer;
-  box-shadow: 0 10px 35px rgba(36,27,20,0.08);
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+position: relative;
+overflow: hidden;
+min-height: 315px;
+background: var(--lichen);
+cursor: pointer;
+box-shadow: 0 10px 35px rgba(36,27,20,0.08);
+transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
 .media-card.tall {
-  grid-row: span 2;
-  min-height: 650px;
+grid-row: span 2;
+min-height: 650px;
 }
 
 .media-card.wide {
-  grid-column: span 2;
+grid-column: span 2;
 }
 
 .media-card img {
-  height: 100%;
-  transition: transform 0.6s ease, filter 0.35s ease;
+height: 100%;
+transition: transform 0.6s ease, filter 0.35s ease;
 }
 
 .media-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 45px rgba(36,27,20,0.16);
+transform: translateY(-4px);
+box-shadow: 0 18px 45px rgba(36,27,20,0.16);
 }
 
 .media-card:hover img {
-  transform: scale(1.045);
-  filter: brightness(0.96);
+transform: scale(1.045);
+filter: brightness(0.96);
 }
 
 /* Plant species captions only */
 
 .plant-label {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  color: white;
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.35;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.75);
+position: absolute;
+left: 1rem;
+right: 1rem;
+bottom: 1rem;
+color: white;
+font-style: italic;
+font-size: 1.05rem;
+line-height: 1.35;
+text-shadow: 0 2px 12px rgba(0,0,0,0.75);
 }
 
 /* Missing image warning */
@@ -425,244 +425,244 @@ section {
 .media-card.missing::after,
 .feature-photo.missing::after,
 .hero-image.missing::after {
-  content: "Image not found. Check file name, folder name, and extension.";
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  background: #eadfd3;
-  color: var(--bark);
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.6;
+content: "Image not found. Check file name, folder name, and extension.";
+position: absolute;
+inset: 0;
+z-index: 4;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 1rem;
+background: #eadfd3;
+color: var(--bark);
+font-family: 'Raleway', sans-serif;
+font-size: 0.85rem;
+line-height: 1.6;
 }
 
 /* CULTURE */
 
 .culture-intro {
-  background: var(--bark);
-  color: var(--snow);
-  padding: 2.4rem;
-  margin-bottom: 2rem;
-  box-shadow: var(--soft-shadow);
+background: var(--bark);
+color: var(--snow);
+padding: 2.4rem;
+margin-bottom: 2rem;
+box-shadow: var(--soft-shadow);
 }
 
 .culture-intro p {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  color: var(--lichen);
+font-size: 1.15rem;
+line-height: 1.9;
+color: var(--lichen);
 }
 
 /* LIGHTBOX */
 
 .lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 3000;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: rgba(10, 14, 12, 0.48);
-  backdrop-filter: blur(14px) saturate(115%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
+display: none;
+position: fixed;
+inset: 0;
+z-index: 3000;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+background: rgba(10, 14, 12, 0.48);
+backdrop-filter: blur(14px) saturate(115%);
+opacity: 0;
+transition: opacity 0.25s ease;
 }
 
 .lightbox.open {
-  display: flex;
-  opacity: 1;
+display: flex;
+opacity: 1;
 }
 
 .lightbox-content {
-  max-width: min(92vw, 1200px);
-  max-height: 88vh;
-  position: relative;
-  animation: lightboxIn 0.24s ease both;
+max-width: min(92vw, 1200px);
+max-height: 88vh;
+position: relative;
+animation: lightboxIn 0.24s ease both;
 }
 
 @keyframes lightboxIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+from {
+opacity: 0;
+transform: translateY(12px) scale(0.985);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
 }
 
 .lightbox-content img {
-  max-width: min(92vw, 1200px);
-  max-height: 88vh;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.38);
-  background: rgba(255,255,255,0.08);
+max-width: min(92vw, 1200px);
+max-height: 88vh;
+object-fit: contain;
+border-radius: 10px;
+box-shadow: 0 24px 80px rgba(0,0,0,0.38);
+background: rgba(255,255,255,0.08);
 }
 
 .lightbox-close {
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.92);
-  color: var(--bark);
-  font-size: 1.4rem;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+position: absolute;
+top: -18px;
+right: -18px;
+width: 42px;
+height: 42px;
+border: none;
+border-radius: 50%;
+background: rgba(255,255,255,0.92);
+color: var(--bark);
+font-size: 1.4rem;
+cursor: pointer;
+font-weight: bold;
+box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .lightbox-close:hover {
-  transform: scale(1.06);
-  background: white;
+transform: scale(1.06);
+background: white;
 }
 
 /* FOOTER */
 
 footer {
-  background: var(--bark);
-  color: var(--lichen);
-  padding: 3.2rem 5rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+background: var(--bark);
+color: var(--lichen);
+padding: 3.2rem 5rem;
+display: flex;
+justify-content: space-between;
+gap: 2rem;
+flex-wrap: wrap;
 }
 
 footer .brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.45rem;
-  color: white;
-  margin-bottom: 0.5rem;
+font-family: 'Playfair Display', serif;
+font-size: 1.45rem;
+color: white;
+margin-bottom: 0.5rem;
 }
 
 footer span {
-  color: var(--gold);
+color: var(--gold);
 }
 
 footer p {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.86rem;
-  line-height: 1.75;
+font-family: 'Raleway', sans-serif;
+font-size: 0.86rem;
+line-height: 1.75;
 }
 
 footer a {
-  color: var(--gold);
-  text-decoration: none;
+color: var(--gold);
+text-decoration: none;
 }
 
 /* ANIMATION */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 
 /* MOBILE */
 
 @media (max-width: 1050px) {
-  nav {
-    padding: 1rem 1.2rem;
-    align-items: flex-start;
-    gap: 1rem;
-  }
+nav {
+padding: 1rem 1.2rem;
+align-items: flex-start;
+gap: 1rem;
+}
 
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 0.85rem;
-  }
+.nav-links {
+flex-wrap: wrap;
+gap: 0.85rem;
+}
 
-  section {
-    padding: 4.4rem 1.4rem;
-  }
+section {
+padding: 4.4rem 1.4rem;
+}
 
-  #home,
-  .about-grid,
-  .feature-row {
-    grid-template-columns: 1fr;
-  }
+#home,
+.about-grid,
+.feature-row {
+grid-template-columns: 1fr;
+}
 
-  .hero-text {
-    padding: 7rem 1.5rem 3.2rem;
-  }
+.hero-text {
+padding: 7rem 1.5rem 3.2rem;
+}
 
-  .hero-image,
-  .hero-image img {
-    min-height: 65vh;
-  }
+.hero-image,
+.hero-image img {
+min-height: 65vh;
+}
 
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.gallery-grid {
+grid-template-columns: repeat(2, 1fr);
+}
 
-  .media-card.tall {
-    min-height: 420px;
-  }
+.media-card.tall {
+min-height: 420px;
+}
 
-  .media-card.wide {
-    grid-column: span 1;
-  }
+.media-card.wide {
+grid-column: span 1;
+}
 
-  footer {
-    padding: 2.2rem 1.4rem;
-  }
+footer {
+padding: 2.2rem 1.4rem;
+}
 }
 
 @media (max-width: 620px) {
-  nav {
-    position: absolute;
-  }
+nav {
+position: absolute;
+}
 
-  .nav-links {
-    display: none;
-  }
+.nav-links {
+display: none;
+}
 
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
+.gallery-grid {
+grid-template-columns: 1fr;
+}
 
-  .media-card,
-  .media-card.tall {
-    min-height: 380px;
-  }
+.media-card,
+.media-card.tall {
+min-height: 380px;
+}
 
-  .hero-caption {
-    left: 1.2rem;
-    right: 1.2rem;
-    bottom: 1.2rem;
-    font-size: 1.05rem;
-  }
+.hero-caption {
+left: 1.2rem;
+right: 1.2rem;
+bottom: 1.2rem;
+font-size: 1.05rem;
+}
 
-  .feature-text,
-  .overview-panel,
-  .culture-intro {
-    padding: 1.6rem;
-  }
+.feature-text,
+.overview-panel,
+.culture-intro {
+padding: 1.6rem;
+}
 
-  .lightbox {
-    padding: 1rem;
-  }
+.lightbox {
+padding: 1rem;
+}
 
-  .lightbox-close {
-    top: 8px;
-    right: 8px;
-  }
+.lightbox-close {
+top: 8px;
+right: 8px;
+}
 }
 </style>
 </head>
@@ -670,393 +670,316 @@ footer a {
 <body>
 
 <nav>
-  <a href="#home" class="nav-brand">Alpine <span>Flora of Tawang</span></a>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">Overview</a></li>
-    <li><a href="#field">Field Work</a></li>
-    <li><a href="#plants">Plants</a></li>
-    <li><a href="#culture">Culture</a></li>
-  </ul>
+<a href="#home" class="nav-brand">Alpine <span>Flora of Tawang</span></a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">Overview</a></li>
+<li><a href="#field">Field Work</a></li>
+<li><a href="#plants">Plants</a></li>
+<li><a href="#culture">Culture</a></li>
+</ul>
 </nav>
 
 <section id="home">
-  <div class="hero-text reveal">
-    <div class="hero-eyebrow">High-Altitude Medicinal Plants · Tawang</div>
-    <h1 class="hero-title">Alpine <em>Flora</em><br>of Tawang</h1>
-    <div class="hero-subtitle">Conserving Himalayan Biodiversity, Culture, and Living Landscapes</div>
-    <p class="hero-desc">
-      A visual documentation of high-altitude medicinal plants, women-led conservation work, Monpa traditions, the Brokpa way of life, and the fragile living landscapes of Tawang, Arunachal Pradesh.
-    </p>
-  </div>
-
-  <div class="hero-image" id="heroImageBox">
-    <img src="Plants/Aconitum%205.jpg" alt="Aconitum heterophyllum from the high-altitude Himalayas" loading="eager" fetchpriority="high" decoding="async" onerror="markMissing(this)">
-    <div class="hero-caption">
-      <strong><em>Aconitum heterophyllum</em></strong> — a highly valued medicinal plant of the high-altitude Himalayas and an important symbol of alpine biodiversity conservation.
+<div class="hero-text reveal">
+<div class="hero-eyebrow">High-Altitude Medicinal Plants · Tawang</div>
+<h1 class="hero-title">Alpine <em>Flora</em><br>of Tawang</h1>
+<div class="hero-subtitle">Conserving Himalayan Biodiversity, Culture, and Living Landscapes</div>
+<p class="hero-desc">
+A visual documentation of high-altitude medicinal plants, women-led conservation work, Monpa traditions, the Brokpa way of life, and the fragile living landscapes of Tawang, Arunachal Pradesh.
+</p>
+    <div class="hero-credit">
+      Curated by Geken Riba · Research Associate · SHRDI Arunachal Pradesh
     </div>
-  </div>
+</div>
+
+<div class="hero-image" id="heroImageBox">
+<img src="Plants/Aconitum%205.jpg" alt="Aconitum heterophyllum from the high-altitude Himalayas" onerror="markMissing(this)">
+<div class="hero-caption">
+<strong><em>Aconitum heterophyllum</em></strong> — a highly valued medicinal plant of the high-altitude Himalayas and an important symbol of alpine biodiversity conservation.
+</div>
+</div>
 </section>
 
 <section id="about">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Project Overview</div>
-    <h2 class="section-title">Plants, <em>People</em> and Mountain Landscapes</h2>
-    <p class="section-desc">
-      Alpine Flora of Tawang is a visual and research-oriented digital portfolio documenting the biological richness, cultural depth, and conservation significance of the high-altitude landscapes of Tawang.
-    </p>
-  </div>
+<div class="section-header reveal">
+<div class="section-eyebrow">Project Overview</div>
+<h2 class="section-title">Plants, <em>People</em> and Mountain Landscapes</h2>
+<p class="section-desc">
+Alpine Flora of Tawang is a visual and research-oriented digital portfolio documenting the biological richness, cultural depth, and conservation significance of the high-altitude landscapes of Tawang.
+</p>
+</div>
 
-  <div class="overview-panel reveal">
-    <p>
-      The Tawang region of Arunachal Pradesh forms part of the Eastern Himalayan landscape, one of the most ecologically sensitive and culturally rich mountain systems in India. Its alpine and sub-alpine habitats support a remarkable diversity of medicinal plants that have adapted to harsh environmental conditions such as low temperature, short growing seasons, high wind exposure, and fragile mountain soils.
-    </p>
+<div class="overview-panel reveal">
+<p>
+The Tawang region of Arunachal Pradesh forms part of the Eastern Himalayan landscape, one of the most ecologically sensitive and culturally rich mountain systems in India. Its alpine and sub-alpine habitats support a remarkable diversity of medicinal plants that have adapted to harsh environmental conditions such as low temperature, short growing seasons, high wind exposure, and fragile mountain soils.
+</p>
 
-    <p>
-      Many of these high-altitude medicinal plant species hold immense ecological, cultural, and livelihood value. They are connected not only to traditional healing systems and local knowledge, but also to biodiversity conservation, climate resilience, and sustainable mountain development. However, these plant resources are increasingly threatened by climate change, habitat degradation, unsustainable harvesting, land-use changes, and declining natural regeneration in fragile alpine ecosystems.
-    </p>
+<p>
+Many of these high-altitude medicinal plant species hold immense ecological, cultural, and livelihood value. They are connected not only to traditional healing systems and local knowledge, but also to biodiversity conservation, climate resilience, and sustainable mountain development. However, these plant resources are increasingly threatened by climate change, habitat degradation, unsustainable harvesting, land-use changes, and declining natural regeneration in fragile alpine ecosystems.
+</p>
 
-    <p>
-      This website brings together field documentation, medicinal plant photographs, women-led conservation activities, Monpa traditions, Brokpa pastoral life, and festival-linked cultural landscapes. It aims to communicate that conservation in the Himalayas is not only about protecting species, but also about understanding the relationship between plants, people, climate, culture, and living landscapes.
-    </p>
-  </div>
+<p>
+This website brings together field documentation, medicinal plant photographs, women-led conservation activities, Monpa traditions, Brokpa pastoral life, and festival-linked cultural landscapes. It aims to communicate that conservation in the Himalayas is not only about protecting species, but also about understanding the relationship between plants, people, climate, culture, and living landscapes.
+</p>
+</div>
 
-  <div class="about-grid reveal">
-    <div class="about-card">
-      <h3>Medicinal plant diversity</h3>
-      <p>
-        The high-altitude ecosystems of Tawang harbour several valuable Himalayan medicinal plant species that require urgent documentation, propagation, and conservation attention.
-      </p>
-    </div>
+<div class="about-grid reveal">
+<div class="about-card">
+<h3>Medicinal plant diversity</h3>
+<p>
+The high-altitude ecosystems of Tawang harbour several valuable Himalayan medicinal plant species that require urgent documentation, propagation, and conservation attention.
+</p>
+</div>
 
-    <div class="about-card">
-      <h3>Community conservation</h3>
-      <p>
-        Local communities, women workers, Self-Help Groups, and field institutions play a crucial role in maintaining conservation plots, nurseries, and sustainable management practices.
-      </p>
-    </div>
+<div class="about-card">
+<h3>Community conservation</h3>
+<p>
+Local communities, women workers, Self-Help Groups, and field institutions play a crucial role in maintaining conservation plots, nurseries, and sustainable management practices.
+</p>
+</div>
 
-    <div class="about-card">
-      <h3>Culture and landscape</h3>
-      <p>
-        Monpa traditions and the Brokpa way of life reflect deep connections between biodiversity, pastoral livelihoods, festivals, traditional knowledge, and high mountain landscapes.
-      </p>
-    </div>
-  </div>
+<div class="about-card">
+<h3>Culture and landscape</h3>
+<p>
+Monpa traditions and the Brokpa way of life reflect deep connections between biodiversity, pastoral livelihoods, festivals, traditional knowledge, and high mountain landscapes.
+</p>
+</div>
+</div>
 </section>
 
 <section id="field">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Field Work</div>
-    <h2 class="section-title">Women-led <em>Conservation</em> in Action</h2>
-    <p class="section-desc">
-      Women from the Tawang region are playing a vital role in the conservation of high-altitude medicinal plant species through a strong community-based collective approach, particularly in the face of increasing climate change pressures on fragile Himalayan ecosystems. Working in collaboration with village communities, Self-Help Groups (SHGs), and concerned government departments such as the State Horticulture Research and Development Institute (SHRDI) and the Forest Department, they actively participate in the protection, cultivation, monitoring, and sustainable management of these ecologically and culturally significant plant resources. Their involvement not only strengthens biodiversity conservation and climate resilience efforts but also promotes community stewardship, preservation of traditional ecological knowledge, and sustainable livelihood opportunities for local populations.
-    </p>
-  </div>
+<div class="section-header reveal">
+<div class="section-eyebrow">Field Work</div>
+<h2 class="section-title">Women-led <em>Conservation</em> in Action</h2>
+<p class="section-desc">
+Women from the Tawang region are playing a vital role in the conservation of high-altitude medicinal plant species through a strong community-based collective approach, particularly in the face of increasing climate change pressures on fragile Himalayan ecosystems. Working in collaboration with village communities, Self-Help Groups (SHGs), and concerned government departments such as the State Horticulture Research and Development Institute (SHRDI) and the Forest Department, they actively participate in the protection, cultivation, monitoring, and sustainable management of these ecologically and culturally significant plant resources. Their involvement not only strengthens biodiversity conservation and climate resilience efforts but also promotes community stewardship, preservation of traditional ecological knowledge, and sustainable livelihood opportunities for local populations.
+</p>
+</div>
 
-  <div class="feature-row reveal">
-    <div class="feature-photo">
-      <img src="Field/field1.jpg" alt="Women from Tawang engaged in high-altitude medicinal plant conservation work" onerror="markMissing(this)">
-    </div>
+<div class="feature-row reveal">
+<div class="feature-photo">
+<img src="Field/field1.jpg" alt="Women from Tawang engaged in high-altitude medicinal plant conservation work" onerror="markMissing(this)">
+</div>
 
-    <div class="feature-text">
-      <h3>Community Stewardship in Practice</h3>
-      <p>
-        The field photographs in this section highlight the people behind conservation action — especially women who contribute to nursery care, plantation work, monitoring, and sustainable management of medicinal plants in fragile mountain ecosystems.
-      </p>
-    </div>
-  </div>
+<div class="feature-text">
+<h3>Community Stewardship in Practice</h3>
+<p>
+The field photographs in this section highlight the people behind conservation action — especially women who contribute to nursery care, plantation work, monitoring, and sustainable management of medicinal plants in fragile mountain ecosystems.
+</p>
+</div>
+</div>
 
-  <div class="gallery-grid reveal" id="fieldGallery"></div>
+<div class="gallery-grid reveal" id="fieldGallery"></div>
 </section>
 
 <section id="plants">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Medicinal Plant Gallery</div>
-    <h2 class="section-title">High-Altitude <em>Medicinal Plants</em></h2>
-    <p class="section-desc">
-      The Tawang region is endowed with a rich diversity of high-altitude flora, including several of the Himalaya’s most valuable medicinal plant species. However, these ecologically significant plant resources are increasingly threatened by the impacts of climate change, habitat degradation, and growing anthropogenic pressures such as unsustainable harvesting and land-use changes. Immediate and scientifically informed conservation measures are therefore essential to safeguard the extremely fragile alpine ecosystems of the Tawang region and other Himalayan landscapes. Strengthening conservation initiatives, promoting sustainable management practices, and enhancing community participation are crucial for preserving the unique biodiversity and ecological stability of these high-altitude environments for future generations.
-    </p>
-  </div>
+<div class="section-header reveal">
+<div class="section-eyebrow">Medicinal Plant Gallery</div>
+<h2 class="section-title">High-Altitude <em>Medicinal Plants</em></h2>
+<p class="section-desc">
+The Tawang region is endowed with a rich diversity of high-altitude flora, including several of the Himalaya’s most valuable medicinal plant species. However, these ecologically significant plant resources are increasingly threatened by the impacts of climate change, habitat degradation, and growing anthropogenic pressures such as unsustainable harvesting and land-use changes. Immediate and scientifically informed conservation measures are therefore essential to safeguard the extremely fragile alpine ecosystems of the Tawang region and other Himalayan landscapes. Strengthening conservation initiatives, promoting sustainable management practices, and enhancing community participation are crucial for preserving the unique biodiversity and ecological stability of these high-altitude environments for future generations.
+</p>
+</div>
 
-  <div class="gallery-grid reveal" id="plantGallery"></div>
+<div class="gallery-grid reveal" id="plantGallery"></div>
 </section>
 
 <section id="culture">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Culture and Traditions</div>
-    <h2 class="section-title">Monpa Traditions and the <em>Brokpa Way of Life</em></h2>
-  </div>
+<div class="section-header reveal">
+<div class="section-eyebrow">Culture and Traditions</div>
+<h2 class="section-title">Monpa Traditions and the <em>Brokpa Way of Life</em></h2>
+</div>
 
-  <div class="culture-intro reveal">
-    <p>
-      The Monpas are one of the major indigenous communities of the Eastern Himalayas, inhabiting the high-altitude regions of Tawang, Arunachal Pradesh. Among them, the Brokpas meaning “people of the high pastures” are traditionally yak-herding communities whose lives are deeply connected to the alpine landscapes. Their festivals, traditional lifestyles, spiritual practices, and indigenous knowledge reflect a unique harmony between culture, biodiversity, and the fragile Himalayan environment.
-    </p>
-  </div>
+<div class="culture-intro reveal">
+<p>
+The Monpas are one of the major indigenous communities of the Eastern Himalayas, inhabiting the high-altitude regions of Tawang, Arunachal Pradesh. Among them, the Brokpas meaning “people of the high pastures” are traditionally yak-herding communities whose lives are deeply connected to the alpine landscapes. Their festivals, traditional lifestyles, spiritual practices, and indigenous knowledge reflect a unique harmony between culture, biodiversity, and the fragile Himalayan environment.
+</p>
+</div>
 
-  <div class="gallery-grid reveal" id="cultureGallery"></div>
+<div class="gallery-grid reveal" id="cultureGallery"></div>
 </section>
 
 <footer>
-  <div>
-    <div class="brand">Alpine <span>Flora of Tawang</span></div>
-    <p>
-      Conserving Himalayan Biodiversity, Culture, and Living Landscapes
-    </p>
-  </div>
+<div>
+<div class="brand">Alpine <span>Flora of Tawang</span></div>
+<p>
+Conserving Himalayan Biodiversity, Culture, and Living Landscapes
+</p>
+</div>
 
-  <p>
-    Curated by Geken Riba<br>
-    Research Associate, SHRDI Arunachal Pradesh<br>
-    Email: <a href="mailto:gekenriba15@gmail.com">gekenriba15@gmail.com</a>
-  </p>
+<p>
+Curated by Geken Riba<br>
+Research Associate, SHRDI Arunachal Pradesh<br>
+Email: <a href="mailto:gekenriba15@gmail.com">gekenriba15@gmail.com</a>
+</p>
 </footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-content">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image">×</button>
-    <img id="lightboxImg" src="" alt="">
-  </div>
+<div class="lightbox-content">
+<button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image">×</button>
+<img id="lightboxImg" src="" alt="">
+</div>
 </div>
 
 <script>
+/* FIELD: field11, field12, field13 removed */
 const fieldImages = [
-  "field2.jpg",
-  "field3.jpg",
-  "field4.jpg",
-  "field5.jpg",
-  "field6.jpg",
-  "field7.jpg",
-  "field10.jpg",
-  "field14.jpg"
+"field2.jpg",
+"field3.jpg",
+"field4.jpg",
+"field5.jpg",
+"field6.jpg",
+"field7.jpg",
+"field10.jpg",
+"field14.jpg"
 ].map(file => ({
-  src: `Field/${file}`,
-  alt: "Women-led high-altitude medicinal plant conservation work in Tawang"
+src: `Field/${file}`,
+alt: "Women-led high-altitude medicinal plant conservation work in Tawang"
 }));
 
+/*
+PLANTS:
+Aconitum 5 is used as the cover image and also appears in the gallery.
+plant12 is removed as requested.
+*/
 const plantImages = [
-  { src: "Plants/Aconitum%205.jpg", name: "Aconitum heterophyllum" },
-  { src: "Plants/plant1.jpg", name: "Aconitum balfourii" },
-  { src: "Plants/plant2.jpg", name: "Aconitum balfourii" },
-  { src: "Plants/plant3.jpg", name: "Aconitum balfourii" },
-  { src: "Plants/plant4.jpg", name: "Aconitum heterophyllum" },
-  { src: "Plants/plant5.jpg", name: "Aconitum tawangense" },
-  { src: "Plants/plant6.jpg", name: "Berberis sp." },
-  { src: "Plants/plant7.jpg", name: "Berberis sp." },
-  { src: "Plants/plant8.jpg", name: "Berberis sp." },
-  { src: "Plants/plant9.jpg", name: "Bistorta vivipara" },
-  { src: "Plants/plant10.jpg", name: "Cyananthus lobatus" },
-  { src: "Plants/plant14.jpg", name: "Gentiana urnula" },
-  { src: "Plants/plant15.jpg", name: "Inula racemosa" },
-  { src: "Plants/plant16.jpg", name: "Inula racemosa" },
-  { src: "Plants/plant17.jpg", name: "Paris polyphylla" },
-  { src: "Plants/plant18.jpg", name: "Paris polyphylla" },
-  { src: "Plants/plant19.jpg", name: "Pedicularis siphonantha" },
-  { src: "Plants/plant20.jpg", name: "Primula griffithii" },
-  { src: "Plants/plant21.jpg", name: "Primula denticulata" },
-  { src: "Plants/plant23.jpg", name: "Primula prolifera" },
-  { src: "Plants/plant24.jpg", name: "Primula griffithii" },
-  { src: "Plants/plant25.jpg", name: "Rhododendron neriiflorum" },
-  { src: "Plants/plant26.jpg", name: "Satyrium nepalense" },
-  { src: "Plants/plant27.jpg", name: "Satyrium nepalense" },
-  { src: "Plants/plant28.jpg", name: "Saxifraga hispidula" },
-  { src: "Plants/plant30.jpg", name: "Swertia perennis" }
+{ src: "Plants/Aconitum%205.jpg", name: "Aconitum heterophyllum" },
+{ src: "Plants/plant1.jpg", name: "Aconitum balfourii" },
+{ src: "Plants/plant2.jpg", name: "Aconitum balfourii" },
+{ src: "Plants/plant3.jpg", name: "Aconitum balfourii" },
+{ src: "Plants/plant4.jpg", name: "Aconitum heterophyllum" },
+{ src: "Plants/plant5.jpg", name: "Aconitum tawangense" },
+{ src: "Plants/plant6.jpg", name: "Berberis sp." },
+{ src: "Plants/plant7.jpg", name: "Berberis sp." },
+{ src: "Plants/plant8.jpg", name: "Berberis sp." },
+{ src: "Plants/plant9.jpg", name: "Bistorta vivipara" },
+{ src: "Plants/plant10.jpg", name: "Cyananthus lobatus" },
+{ src: "Plants/plant14.jpg", name: "Gentiana urnula" },
+{ src: "Plants/plant15.jpg", name: "Inula racemosa" },
+{ src: "Plants/plant16.jpg", name: "Inula racemosa" },
+{ src: "Plants/plant17.jpg", name: "Paris polyphylla" },
+{ src: "Plants/plant18.jpg", name: "Paris polyphylla" },
+{ src: "Plants/plant19.jpg", name: "Pedicularis siphonantha" },
+{ src: "Plants/plant20.jpg", name: "Primula griffithii" },
+{ src: "Plants/plant21.jpg", name: "Primula denticulata" },
+{ src: "Plants/plant23.jpg", name: "Primula prolifera" },
+{ src: "Plants/plant24.jpg", name: "Primula griffithii" },
+{ src: "Plants/plant25.jpg", name: "Rhododendron neriiflorum" },
+{ src: "Plants/plant26.jpg", name: "Satyrium nepalense" },
+{ src: "Plants/plant27.jpg", name: "Satyrium nepalense" },
+{ src: "Plants/plant28.jpg", name: "Saxifraga hispidula" },
+{ src: "Plants/plant30.jpg", name: "Swertia perennis" }
 ];
 
 const cultureImages = Array.from({ length: 19 }, (_, i) => ({
-  src: `Culture%20and%20traditions/culture${i + 1}.jpg`,
-  alt: "Monpa traditions, Brokpa life, festivals, and cultural landscapes of Tawang"
+src: `Culture%20and%20traditions/culture${i + 1}.jpg`,
+alt: "Monpa traditions, Brokpa life, festivals, and cultural landscapes of Tawang"
 }));
 
-/* Smart image preloader */
-const preloadedImages = new Set();
-
-function preloadImage(src) {
-  if (!src || preloadedImages.has(src)) return;
-
-  const image = new Image();
-  image.decoding = "async";
-  image.src = src;
-
-  preloadedImages.add(src);
-}
-
-function preloadImageGroup(items) {
-  items.forEach((item, index) => {
-    setTimeout(() => {
-      preloadImage(item.src);
-    }, index * 80);
-  });
-}
-
-/* Start loading section images before viewer reaches them */
-function setupSmartPreloading() {
-  const plantsSection = document.getElementById("plants");
-  const cultureSection = document.getElementById("culture");
-
-  const preloadObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-
-      if (entry.target.id === "plants") {
-        preloadImageGroup(plantImages);
-      }
-
-      if (entry.target.id === "culture") {
-        preloadImageGroup(cultureImages);
-      }
-
-      observer.unobserve(entry.target);
-    });
-  }, {
-    rootMargin: "1400px 0px",
-    threshold: 0.01
-  });
-
-  if (plantsSection) preloadObserver.observe(plantsSection);
-  if (cultureSection) preloadObserver.observe(cultureSection);
-}
-
 function markMissing(img) {
-  const parent = img.closest(".media-card, .feature-photo, .hero-image");
-
-  if (parent) {
-    parent.classList.add("missing");
-    img.style.display = "none";
-  }
+const parent = img.closest(".media-card, .feature-photo, .hero-image");
+if (parent) {
+parent.classList.add("missing");
+img.style.display = "none";
 }
-
-function createImageCard(item, options = {}) {
-  const card = document.createElement("div");
-  card.className = options.className || "media-card";
-
-  const labelHTML = options.label
-    ? `<div class="plant-label"><em>${options.label}</em></div>`
-    : "";
-
-  const loadingType = options.eager ? "eager" : "lazy";
-  const fetchPriority = options.eager ? "high" : "auto";
-
-  card.innerHTML = `
-    <img 
-      src="${item.src}" 
-      alt="${item.alt || options.label || ""}" 
-      loading="${loadingType}" 
-      fetchpriority="${fetchPriority}" 
-      decoding="async" 
-      onerror="markMissing(this)"
-    >
-    ${labelHTML}
-  `;
-
-  card.addEventListener("click", () => {
-    if (!card.classList.contains("missing")) {
-      openLightbox(item.src, item.alt || options.label || "");
-    }
-  });
-
-  return card;
 }
 
 function renderFieldGallery() {
-  const container = document.getElementById("fieldGallery");
+const container = document.getElementById("fieldGallery");
 
-  fieldImages.forEach((item, index) => {
-    let className = "media-card";
+fieldImages.forEach((item, index) => {
+const card = document.createElement("div");
+let className = "media-card";
 
-    if (index === 1 || index === 6) className += " tall";
-    if (index === 4) className += " wide";
+if (index === 1 || index === 6) className += " tall";
+if (index === 4) className += " wide";
 
-    container.appendChild(createImageCard(item, { 
-      className: className,
-      eager: index < 3
-    }));
-  });
+card.className = className;
+card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" onerror="markMissing(this)">`;
+
+card.addEventListener("click", () => {
+if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
+});
+
+container.appendChild(card);
+});
 }
 
 function renderPlantGallery() {
-  const container = document.getElementById("plantGallery");
+const container = document.getElementById("plantGallery");
 
-  plantImages.forEach((item, index) => {
-    let className = "media-card";
+plantImages.forEach((item, index) => {
+const card = document.createElement("div");
+let className = "media-card";
 
-    if (index === 0 || index === 11 || index === 21) className += " tall";
-    if (index === 4 || index === 15) className += " wide";
+if (index === 0 || index === 12 || index === 24) className += " tall";
+if (index === 4 || index === 17) className += " wide";
 
-    container.appendChild(createImageCard(
-      { src: item.src, alt: item.name },
-      { 
-        className: className, 
-        label: item.name,
-        eager: index < 4
-      }
-    ));
-  });
+card.className = className;
+card.innerHTML = `
+     <img src="${item.src}" alt="${item.name}" loading="lazy" decoding="async" onerror="markMissing(this)">
+     <div class="plant-label"><em>${item.name}</em></div>
+   `;
+
+card.addEventListener("click", () => {
+if (!card.classList.contains("missing")) openLightbox(item.src, item.name);
+});
+
+container.appendChild(card);
+});
 }
 
 function renderCultureGallery() {
-  const container = document.getElementById("cultureGallery");
+const container = document.getElementById("cultureGallery");
 
-  cultureImages.forEach((item, index) => {
-    let className = "media-card";
+cultureImages.forEach((item, index) => {
+const card = document.createElement("div");
+let className = "media-card";
 
-    if (index === 0 || index === 7 || index === 14) className += " tall";
-    if (index === 4 || index === 11) className += " wide";
+if (index === 0 || index === 7 || index === 14) className += " tall";
+if (index === 4 || index === 11) className += " wide";
 
-    container.appendChild(createImageCard(item, { 
-      className: className,
-      eager: index < 4
-    }));
-  });
+card.className = className;
+card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" onerror="markMissing(this)">`;
+
+card.addEventListener("click", () => {
+if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
+});
+
+container.appendChild(card);
+});
 }
 
 function openLightbox(src, altText) {
-  preloadImage(src);
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
+lightboxImg.src = src;
+lightboxImg.alt = altText;
 
-  lightboxImg.src = src;
-  lightboxImg.alt = altText;
-
-  lightbox.classList.add("open");
-  document.body.classList.add("no-scroll");
+lightbox.classList.add("open");
+document.body.style.overflow = "hidden";
 }
 
-function closeLightbox() {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-
-  lightbox.classList.remove("open");
-  document.body.classList.remove("no-scroll");
-
-  setTimeout(() => {
-    lightboxImg.src = "";
-  }, 150);
+function closeLightbox(e) {
+if (!e || e.target.id === "lightbox" || e.target.className === "lightbox-close") {
+document.getElementById("lightbox").classList.remove("open");
+document.body.style.overflow = "";
 }
-
-document.getElementById("lightbox").addEventListener("click", function(e) {
-  if (e.target.id === "lightbox") {
-    closeLightbox();
-  }
-});
-
-document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+}
 
 document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    closeLightbox();
-  }
+if (e.key === "Escape") closeLightbox();
 });
 
-/* Smooth reveal animation */
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
 }, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
@@ -1064,14 +987,6 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 renderFieldGallery();
 renderPlantGallery();
 renderCultureGallery();
-setupSmartPreloading();
-
-/* Light background preloading after first page load */
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    preloadImageGroup(fieldImages);
-  }, 800);
-});
 </script>
 
 </body>
