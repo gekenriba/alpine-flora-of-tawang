@@ -376,10 +376,15 @@ grid-auto-rows: minmax(315px, auto);
 position: relative;
 overflow: hidden;
 min-height: 315px;
-background: var(--lichen);
+background-color: var(--lichen);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 cursor: pointer;
 box-shadow: 0 10px 35px rgba(36,27,20,0.08);
 transition: transform 0.28s ease, box-shadow 0.28s ease;
+transform: translateZ(0);
+-webkit-transform: translateZ(0);
 }
 
 .media-card.tall {
@@ -396,10 +401,16 @@ grid-column: span 2;
 position: absolute;
 top: 0;
 left: 0;
+z-index: 1;
 width: 100%;
 height: 100%;
 object-fit: cover;
+opacity: 1;
 transition: transform 0.6s ease, filter 0.35s ease;
+backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+transform: translateZ(0);
+-webkit-transform: translateZ(0);
 }
 
 .media-card:hover {
@@ -418,7 +429,7 @@ position: absolute;
 left: 1rem;
 right: 1rem;
 bottom: 1rem;
-z-index: 2;
+z-index: 3;
 color: white;
 font-style: italic;
 font-size: 1.05rem;
@@ -782,7 +793,7 @@ The field photographs in this section highlight the people behind conservation a
 </div>
 </div>
 
-<div class="gallery-grid reveal" id="fieldGallery"></div>
+<div class="gallery-grid" id="fieldGallery"></div>
 </section>
 
 <section id="plants">
@@ -794,7 +805,7 @@ The Tawang region is endowed with a rich diversity of high-altitude flora, inclu
 </p>
 </div>
 
-<div class="gallery-grid reveal" id="plantGallery"></div>
+<div class="gallery-grid" id="plantGallery"></div>
 </section>
 
 <section id="culture">
@@ -809,7 +820,7 @@ The Monpas are one of the major indigenous communities of the Eastern Himalayas,
 </p>
 </div>
 
-<div class="gallery-grid reveal" id="cultureGallery"></div>
+<div class="gallery-grid" id="cultureGallery"></div>
 </section>
 
 <footer>
@@ -893,7 +904,8 @@ let className = "media-card";
 if (index === 1 || index === 6) className += " tall";
 if (index === 4) className += " wide";
 card.className = className;
-card.innerHTML = `<img src="${item.src}" alt="${item.alt}" onerror="markMissing(this)">`;
+card.style.backgroundImage = `url("${item.src}")`;
+card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="eager" decoding="async" onerror="markMissing(this)">`;
 card.addEventListener("click", () => {
 if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
 });
@@ -909,8 +921,9 @@ let className = "media-card";
 if (index === 0 || index === 12 || index === 24) className += " tall";
 if (index === 4 || index === 17) className += " wide";
 card.className = className;
+card.style.backgroundImage = `url("${item.src}")`;
 card.innerHTML = `
-     <img src="${item.src}" alt="${item.name}" onerror="markMissing(this)">
+     <img src="${item.src}" alt="${item.name}" loading="eager" decoding="async" onerror="markMissing(this)">
      <div class="plant-label"><em>${item.name}</em></div>
    `;
 card.addEventListener("click", () => {
@@ -928,7 +941,8 @@ let className = "media-card";
 if (index === 0 || index === 7 || index === 14) className += " tall";
 if (index === 4 || index === 11) className += " wide";
 card.className = className;
-card.innerHTML = `<img src="${item.src}" alt="${item.alt}" onerror="markMissing(this)">`;
+card.style.backgroundImage = `url("${item.src}")`;
+card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="eager" decoding="async" onerror="markMissing(this)">`;
 card.addEventListener("click", () => {
 if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
 });
@@ -956,6 +970,15 @@ document.addEventListener("keydown", function(e) {
 if (e.key === "Escape") closeLightbox();
 });
 
+/* Render galleries before starting reveal animation.
+   This prevents mobile browsers from calculating the empty gallery as invisible. */
+renderFieldGallery();
+renderPlantGallery();
+renderCultureGallery();
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
@@ -963,14 +986,25 @@ entry.target.classList.add("visible");
 observer.unobserve(entry.target);
 }
 });
-}, { threshold: 0.12 });
+}, {
+threshold: 0.05,
+rootMargin: "0px 0px -5% 0px"
+});
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+revealElements.forEach(el => observer.observe(el));
+} else {
+revealElements.forEach(el => el.classList.add("visible"));
+}
 
-/* Run gallery generators straight at launch */
-renderFieldGallery();
-renderPlantGallery();
-renderCultureGallery();
+/* Extra mobile fallback: if a section is already on screen, show it immediately. */
+window.addEventListener("load", () => {
+revealElements.forEach(el => {
+const rect = el.getBoundingClientRect();
+if (rect.top < window.innerHeight * 0.95) {
+el.classList.add("visible");
+}
+});
+});
 </script>
 
 </body>
