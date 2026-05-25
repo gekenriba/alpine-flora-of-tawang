@@ -691,7 +691,7 @@ footer a {
   </div>
 
   <div class="hero-image" id="heroImageBox">
-    <img src="Plants/Aconitum%205.jpg" alt="Aconitum heterophyllum from the high-altitude Himalayas" onerror="markMissing(this)">
+    <img src="Plants/Aconitum%205.jpg" alt="Aconitum heterophyllum from the high-altitude Himalayas" loading="eager" fetchpriority="high" decoding="async" onerror="markMissing(this)">
     <div class="hero-caption">
       <strong><em>Aconitum heterophyllum</em></strong> — a highly valued medicinal plant of the high-altitude Himalayas and an important symbol of alpine biodiversity conservation.
     </div>
@@ -820,7 +820,6 @@ footer a {
 </div>
 
 <script>
-/* FIELD: field11, field12, field13 removed */
 const fieldImages = [
   "field2.jpg",
   "field3.jpg",
@@ -835,11 +834,6 @@ const fieldImages = [
   alt: "Women-led high-altitude medicinal plant conservation work in Tawang"
 }));
 
-/*
-PLANTS:
-Aconitum 5 is used as the cover image and also appears in the gallery.
-plant12 is removed as requested.
-*/
 const plantImages = [
   { src: "Plants/Aconitum%205.jpg", name: "Aconitum heterophyllum" },
   { src: "Plants/plant1.jpg", name: "Aconitum balfourii" },
@@ -874,32 +868,109 @@ const cultureImages = Array.from({ length: 19 }, (_, i) => ({
   alt: "Monpa traditions, Brokpa life, festivals, and cultural landscapes of Tawang"
 }));
 
+/* Smart image preloader */
+const preloadedImages = new Set();
+
+function preloadImage(src) {
+  if (!src || preloadedImages.has(src)) return;
+
+  const image = new Image();
+  image.decoding = "async";
+  image.src = src;
+
+  preloadedImages.add(src);
+}
+
+function preloadImageGroup(items) {
+  items.forEach((item, index) => {
+    setTimeout(() => {
+      preloadImage(item.src);
+    }, index * 80);
+  });
+}
+
+/* Start loading section images before viewer reaches them */
+function setupSmartPreloading() {
+  const plantsSection = document.getElementById("plants");
+  const cultureSection = document.getElementById("culture");
+
+  const preloadObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      if (entry.target.id === "plants") {
+        preloadImageGroup(plantImages);
+      }
+
+      if (entry.target.id === "culture") {
+        preloadImageGroup(cultureImages);
+      }
+
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: "1400px 0px",
+    threshold: 0.01
+  });
+
+  if (plantsSection) preloadObserver.observe(plantsSection);
+  if (cultureSection) preloadObserver.observe(cultureSection);
+}
+
 function markMissing(img) {
   const parent = img.closest(".media-card, .feature-photo, .hero-image");
+
   if (parent) {
     parent.classList.add("missing");
     img.style.display = "none";
   }
 }
 
+function createImageCard(item, options = {}) {
+  const card = document.createElement("div");
+  card.className = options.className || "media-card";
+
+  const labelHTML = options.label
+    ? `<div class="plant-label"><em>${options.label}</em></div>`
+    : "";
+
+  const loadingType = options.eager ? "eager" : "lazy";
+  const fetchPriority = options.eager ? "high" : "auto";
+
+  card.innerHTML = `
+    <img 
+      src="${item.src}" 
+      alt="${item.alt || options.label || ""}" 
+      loading="${loadingType}" 
+      fetchpriority="${fetchPriority}" 
+      decoding="async" 
+      onerror="markMissing(this)"
+    >
+    ${labelHTML}
+  `;
+
+  card.addEventListener("click", () => {
+    if (!card.classList.contains("missing")) {
+      openLightbox(item.src, item.alt || options.label || "");
+    }
+  });
+
+  return card;
+}
+
 function renderFieldGallery() {
   const container = document.getElementById("fieldGallery");
 
   fieldImages.forEach((item, index) => {
-    const card = document.createElement("div");
     let className = "media-card";
 
     if (index === 1 || index === 6) className += " tall";
     if (index === 4) className += " wide";
 
-    card.className = className;
-    card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" onerror="markMissing(this)">`;
-
-    card.addEventListener("click", () => {
-      if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
-    });
-
-    container.appendChild(card);
+    container.appendChild(createImageCard(item, { 
+      className: className,
+      eager: index < 3
+    }));
   });
 }
 
@@ -907,23 +978,19 @@ function renderPlantGallery() {
   const container = document.getElementById("plantGallery");
 
   plantImages.forEach((item, index) => {
-    const card = document.createElement("div");
     let className = "media-card";
 
-    if (index === 0 || index === 12 || index === 24) className += " tall";
-    if (index === 4 || index === 17) className += " wide";
+    if (index === 0 || index === 11 || index === 21) className += " tall";
+    if (index === 4 || index === 15) className += " wide";
 
-    card.className = className;
-    card.innerHTML = `
-      <img src="${item.src}" alt="${item.name}" loading="lazy" decoding="async" onerror="markMissing(this)">
-      <div class="plant-label"><em>${item.name}</em></div>
-    `;
-
-    card.addEventListener("click", () => {
-      if (!card.classList.contains("missing")) openLightbox(item.src, item.name);
-    });
-
-    container.appendChild(card);
+    container.appendChild(createImageCard(
+      { src: item.src, alt: item.name },
+      { 
+        className: className, 
+        label: item.name,
+        eager: index < 4
+      }
+    ));
   });
 }
 
@@ -931,24 +998,21 @@ function renderCultureGallery() {
   const container = document.getElementById("cultureGallery");
 
   cultureImages.forEach((item, index) => {
-    const card = document.createElement("div");
     let className = "media-card";
 
     if (index === 0 || index === 7 || index === 14) className += " tall";
     if (index === 4 || index === 11) className += " wide";
 
-    card.className = className;
-    card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" onerror="markMissing(this)">`;
-
-    card.addEventListener("click", () => {
-      if (!card.classList.contains("missing")) openLightbox(item.src, item.alt);
-    });
-
-    container.appendChild(card);
+    container.appendChild(createImageCard(item, { 
+      className: className,
+      eager: index < 4
+    }));
   });
 }
 
 function openLightbox(src, altText) {
+  preloadImage(src);
+
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");
 
@@ -956,20 +1020,36 @@ function openLightbox(src, altText) {
   lightboxImg.alt = altText;
 
   lightbox.classList.add("open");
-  document.body.style.overflow = "hidden";
+  document.body.classList.add("no-scroll");
 }
 
-function closeLightbox(e) {
-  if (!e || e.target.id === "lightbox" || e.target.className === "lightbox-close") {
-    document.getElementById("lightbox").classList.remove("open");
-    document.body.style.overflow = "";
+function closeLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+
+  lightbox.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+
+  setTimeout(() => {
+    lightboxImg.src = "";
+  }, 150);
+}
+
+document.getElementById("lightbox").addEventListener("click", function(e) {
+  if (e.target.id === "lightbox") {
+    closeLightbox();
   }
-}
-
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") closeLightbox();
 });
 
+document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+
+/* Smooth reveal animation */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -984,6 +1064,14 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 renderFieldGallery();
 renderPlantGallery();
 renderCultureGallery();
+setupSmartPreloading();
+
+/* Light background preloading after first page load */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    preloadImageGroup(fieldImages);
+  }, 800);
+});
 </script>
 
 </body>
