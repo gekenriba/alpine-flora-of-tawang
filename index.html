@@ -68,7 +68,7 @@ left: 0;
 width: 100%;
 z-index: 1000;
 display: flex;
-justify-content: space-between;
+justify-content: flex-end;
 align-items: center;
 padding: 1rem 3rem;
 background: rgba(246,242,235,0.88);
@@ -190,13 +190,25 @@ color: var(--moss);
 .hero-subtitle {
 font-family: 'Raleway', sans-serif;
 font-size: 0.82rem;
-font-weight: 700;
-letter-spacing: 0.16em;
+font-weight: 600;
+letter-spacing: 0.18em;
 text-transform: uppercase;
 color: var(--gold);
 margin-bottom: 1.6rem;
-max-width: 560px;
-line-height: 1.7;
+max-width: 620px;
+line-height: 1.8;
+position: relative;
+padding-left: 1.35rem;
+}
+
+.hero-subtitle::before {
+content: "";
+position: absolute;
+left: 0;
+top: 0.55em;
+width: 0.75rem;
+height: 1px;
+background: var(--gold);
 }
 
 .hero-desc {
@@ -648,7 +660,7 @@ padding: 2.2rem 1.4rem;
 
 @media (max-width: 620px) {
 nav {
-position: absolute;
+display: none;
 }
 
 .nav-links {
@@ -693,7 +705,6 @@ right: 8px;
 <body>
 
 <nav>
-<a href="#home" class="nav-brand">Alpine <span>Flora of Tawang</span></a>
 <ul class="nav-links">
 <li><a href="#home">Home</a></li>
 <li><a href="#about">Overview</a></li>
@@ -705,15 +716,11 @@ right: 8px;
 
 <section id="home">
 <div class="hero-text reveal">
-<div class="hero-eyebrow">High-Altitude Medicinal Plants · Tawang</div>
 <h1 class="hero-title">Alpine <em>Flora</em><br>of Tawang</h1>
-<div class="hero-subtitle">Conserving Himalayan Biodiversity, Culture, and Living Landscapes</div>
+<div class="hero-subtitle">A Living Chronicle of Himalayan Biodiversity, Culture, and Mountain Landscapes</div>
 <p class="hero-desc">
 A visual documentation of high-altitude medicinal plants, women-led conservation work, Monpa traditions, the Brokpa way of life, and the fragile living landscapes of Tawang, Arunachal Pradesh.
 </p>
-    <div class="hero-credit">
-        Curated by Geken Riba · Research Associate · SHRDI Arunachal Pradesh
-    </div>
 </div>
 
 <div class="hero-image" id="heroImageBox">
@@ -827,7 +834,7 @@ The Monpas are one of the major indigenous communities of the Eastern Himalayas,
 <div>
 <div class="brand">Alpine <span>Flora of Tawang</span></div>
 <p>
-Conserving Himalayan Biodiversity, Culture, and Living Landscapes
+A Living Chronicle of Himalayan Biodiversity, Culture, and Mountain Landscapes
 </p>
 </div>
 
